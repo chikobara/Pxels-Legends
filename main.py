@@ -1,11 +1,12 @@
 import pygame as pg
 
 fps = 60
-width , height = 800, 600
+width, height = 800, 600
 win = pg.display.set_mode((width, height))
 pg.display.set_caption("Brick Breaker")
 
-def draw (win):
+
+def draw(win):
     win.fill("WHITE")
     pg.display.update()
 
@@ -21,9 +22,10 @@ def main():
                 run = 0
                 break
         draw(win)
-    
+
     pg.quit()
     quit()
 
+
 if __name__ == "__main__":
-    main()    
+    main()
