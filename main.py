@@ -1,9 +1,25 @@
 import pygame as pg
 
 fps = 60
-width, height = 800, 600
-win = pg.display.set_mode((width, height))
+WIDTH, HEIGHT = 800, 600
+win = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("Brick Breaker")
+PADDLE_WIDTH = 40
+PADDLE_HEIGHT = 10
+
+
+class Paddle:
+    VEL = 5
+
+    def __init__(self, x, y, width, height, color):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.color = color
+
+    def draw(self, win):
+        pg.draw.rect(win, self.color, (self.x, self.y, self.width, self.height))
 
 
 def draw(win):
@@ -14,6 +30,7 @@ def draw(win):
 def main():
     clock = pg.time.Clock()
     run = 1
+    paddle = Paddle(WIDTH / 2, HEIGHT / 2)
 
     while run:
         clock.tick(fps)
