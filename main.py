@@ -1,30 +1,32 @@
-import pygame as pg
+import pygame
 
-pg.init()
+pygame.init()
 
 
 fps = 60
+pygame.display.set_caption("Pixels-Legends")
 
 # window :
 WW, WH = 800, 400
-win = pg.display.set_mode((WW, WH))
-pg.display.set_caption("Pixels-Legends")
+win = pygame.display.set_mode((WW, WH))
 
 
 def draw():
-    pass
+    win.fill("WHITE")
+    pygame.display.update()
 
 
 def main():
+    clock = pygame.time.Clock()
     run = 1
-
     while run:
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
+        clock.tick(fps)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
                 run = 0
-                break
+                pygame.quit()
 
-    pg.quit()
+            draw()
 
 
 if __name__ == "__main__":
